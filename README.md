@@ -181,11 +181,11 @@ Note: Save the access_token for the next requests.
 
 Summary of Endpoints:
 
-Register User: POST /api/register/
-Login User: POST /api/login/
-Create Employee: POST /api/employees/
-List Employees: GET /api/employees/
-Retrieve Employee: GET /api/employees/{id}/
-Update Employee: PUT /api/employees/{id}/
-Delete Employee: DELETE /api/employees/{id}/
-Logout: POST /api/logout/
+-Register User: POST /api/register/
+-Login User: POST /api/login/
+-Create Employee: POST /api/employees/
+-List Employees: GET /api/employees/
+-Retrieve Employee: GET /api/employees/{id}/
+-Update Employee: PUT /api/employees/{id}/
+-Delete Employee: DELETE /api/employees/{id}/
+-Logout: POST /api/logout/
