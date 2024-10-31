@@ -28,7 +28,7 @@ This is a Django REST API project for managing employees in a company. It includ
 
 1. **Clone the repository**:
      ```bash
-    git clone https://github.com/yourusername/employee-management.git
+    git clone https://github.com/ManpreetKaur04/API_Employee.git
     cd employee-management
 
 2. Create a virtual environment:
@@ -114,18 +114,15 @@ Note: Save the access_token for the next requests.
     URL: http://localhost:8000/api/employees/
     Headers- Authorization: Bearer your_access_token
     Expected Response- 200 OK
-        [
-            {
-                "id": 1,
-                "name": "Alice Johnson",
-                "email": "alice@example.com",
-                "department": "Engineering",
-                "role": "Developer",
-                "date_joined": "2024-11-01"
-            }
-        ]
-
-7. Retrieve a Single Employee
+        {
+             "id": 1, "name": "Alice Johnson",
+             "email": "alice@example.com",
+             "department": "Engineering",
+             "role": "Developer",
+             "date_joined": "2024-11-01"
+        }
+   
+8. Retrieve a Single Employee
     Method: GET
     URL: http://localhost:8000/api/employees/1/ (replace 1 with the employee's ID)
     Headers- Authorization: Bearer your_access_token
@@ -139,7 +136,7 @@ Note: Save the access_token for the next requests.
             "date_joined": "2024-11-01"
         }
 
-8. Update an Employee
+9. Update an Employee
     Method: PUT
     URL: http://localhost:8000/api/employees/1/ (replace 1 with the employee's ID)
     Headers- Authorization: Bearer your_access_token, Content-Type: application/json
