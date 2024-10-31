@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+</head>
+<body>
+    <h2>Employee List</h2>
+    <div id="employeeTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Role</th>
+                    <th>Date Joined</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeData"></tbody>
+        </table>
+    </div>
+    <script>
+        async function fetchEmployees() {
+            const token = localStorage.getItem('access_token');
+            const response = await fetch('/api/employees/', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            const employeeData = document.getElementById('employeeData');
+            employeeData.innerHTML = '';
+            data.results.forEach(employee => {
+                employeeData.innerHTML += `
+                    <tr>
+                        <td>${employee.id}</td>
+                        <td>${employee.name}</td>
+                        <td>${employee.email}</td>
+                        <td>${employee.department}</td>
+                        <td>${employee.role}</td>
+                        <td>${employee.date_joined}</td>
+                        <td>
+                            <a href="/employees/edit/${employee.id}/">Edit</a> |
+                            <button onclick="deleteEmployee(${employee.id})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        async function deleteEmployee(id) {
+            const token = localStorage.getItem('access_token');
+            await fetch(`/api/employees/${id}/`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            fetchEmployees();
+        }
+
+        fetchEmployees();
+    </script>
+</body>
+</html>
